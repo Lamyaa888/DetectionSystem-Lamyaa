@@ -113,7 +113,7 @@ Run:
 ---
 
 ## 📌 6. Sample Output (Screenshots)
-
+![System Output](images/output.png)
 ### 🔹 Danger Detected
 ```
 [System] Danger signal received...
