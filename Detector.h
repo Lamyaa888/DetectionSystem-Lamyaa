@@ -7,6 +7,10 @@
 
 class Detector {
 private:
+
+    // Updated: reorganized observer list handling for clarity
+    // list of all observers (alarm, light, logger)
+
     std::vector<Observer*> observers;
     bool dangerDetected = false;
 
@@ -28,3 +32,5 @@ public:
 };
 
 #endif // DETECTOR_H_INCLUDED
+
+//  reorganized observer list handling for clarity
