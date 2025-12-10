@@ -1,3 +1,5 @@
+// small note: testing main setup
+
 #include <iostream>
 #include "Detector.h"
 #include "Alarm.h"
