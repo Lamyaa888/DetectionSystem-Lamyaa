@@ -7,7 +7,7 @@
 class LogObserver : public Observer {
 public:
     void update(const std::string& msg) override {
-        std::cout << "[LOGGER] Log saved: " << msg << "\n";
+        std::cout << "[LOGGER] Log entry: " << msg << "\n";
     }
 };
 
