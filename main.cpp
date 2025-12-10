@@ -23,6 +23,7 @@ int main() {
 
     while (true) {
 
+        cout << "\n-------------------------------\n";
         cout << "\n--- Starting new cycle ---\n";
         cout << "\n=== Smart Home Detection System ===\n";
         cout << "Press 1 to simulate Danger.\n";
