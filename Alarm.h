@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Observer.h"
 
+// Alarm observer: reacts when danger is detected (turns alarm ON)
+
 class Alarm : public Observer {
 public:
     void update(const std::string& msg) override {
