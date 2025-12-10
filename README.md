@@ -1,5 +1,5 @@
 # Detection System (Smoke/Gas)
-### Author: Lamyaa Ahmed Guled  
+### Name: Lamyaa Ahmed Guled  
 ### Course: CENG-464 — Design Patterns with C++  
 ### Subsystem: Detection System (Smoke/Gas)  
 ### Design Pattern Used: **Observer Pattern**
