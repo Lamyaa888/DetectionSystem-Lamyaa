@@ -25,6 +25,7 @@ int main() {
 
         cout << "\n-------------------------------\n";
         cout << "\n--- Starting new cycle ---\n";
+        cout << string(40, '-') << "\n";
         cout << "\n=== Smart Home Detection System ===\n";
         cout << "Press 1 to simulate Danger.\n";
         cout << "Press 0 to Exit.\n";
@@ -34,6 +35,20 @@ int main() {
         if (choice == 1) {
         cout << "[System] Danger signal received...\n";
             detector.setDanger(true);
+            // --- Detection Sequence Simulation (DS3 & DS4) ---
+cout << "\n--- Detection Sequence Simulation ---\n";
+cout << "[System] No user acknowledgement detected.\n";
+
+// Simulate blinking lights (DS3)
+cout << "[LIGHT] Blinking all lights... (simulation)\n";
+cout << "[LIGHT] Blinking interval = 1 second (simulation)\n";
+
+cout << "[System] Still no acknowledgement received.\n";
+
+// Fire station call simulation (DS4)
+cout << "[System] Calling Fire Station... (simulation)\n";
+cout << "----------------------------------------------\n";
+
         } else if (choice == 0) {
             break;
         } else {

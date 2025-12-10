@@ -24,12 +24,14 @@ public:
         notify("Danger!");
     }
 
-    void notify(const std::string& msg) {
-        for (auto obs : observers) {
-            obs->update(msg);
-        }
+  void notify(const std::string& msg) {
+    for (auto obs : observers) {
+        obs->update(msg);
     }
+ }
+
 };
+
 
 #endif // DETECTOR_H_INCLUDED
 
