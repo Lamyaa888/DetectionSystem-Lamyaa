@@ -32,6 +32,7 @@ int main() {
         cin >> choice;
 
         if (choice == 1) {
+        cout << "[System] Danger signal received...\n";
             detector.setDanger(true);
         } else if (choice == 0) {
             break;
