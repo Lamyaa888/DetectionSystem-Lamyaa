@@ -22,6 +22,8 @@ int main() {
     int choice;
 
     while (true) {
+
+        cout << "\n--- Starting new cycle ---\n";
         cout << "\n=== Smart Home Detection System ===\n";
         cout << "Press 1 to simulate Danger.\n";
         cout << "Press 0 to Exit.\n";
