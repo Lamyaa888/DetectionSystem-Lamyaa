@@ -1,151 +1,51 @@
-# Detection System (Smoke/Gas)
-### Name: Lamyaa Ahmed Guled  
-### Course: CENG-464 — Design Patterns with C++  
-### Subsystem: Detection System (Smoke/Gas)  
-### Design Pattern Used: **Observer Pattern**
+# Detection System (Smoke/Gas) – My Sweet Home (MSH)
+
+**Name:** Lamyaa Ahmed Guled  
+**Course:** CENG-464 – Design Patterns with C++  
+**Subsystem:** Detection System (Smoke/Gas)  
+**Design Pattern:** Observer Pattern  
 
 ---
 
-## 📌 1. Overview
-The Detection System is responsible for **monitoring smoke/gas levels** inside the smart home.  
-When the detector identifies abnormal levels, it **notifies all observers** (Alarm, Light, Logger) to react immediately.
+## 1. Overview
+The Detection System is responsible for detecting abnormal smoke or gas levels inside the smart home.
+When a dangerous condition is detected, the system triggers reactions through the Observer Pattern.
 
-This subsystem is designed to be **modular**, **extendable**, and **integration-ready** with the full Smart Home System.
-
----
-
-## 📌 2. Observer Pattern — How It Works
-
-The **Detector** acts as the **Subject**.  
-It maintains a list of observers:
-
-- `AlarmObserver`
-- `LightObserver`
-- `LogObserver`
-
-Whenever danger is detected:
-
-1. The detector calls `notify("Danger!")`
-2. Every observer executes its own `update(msg)` independently:
-   - **Alarm** → activates the siren  
-   - **Light** → starts blinking  
-   - **Logger** → records the event  
-
-This design provides **loose coupling** and makes the system easy to integrate with other subsystems.
+This module is designed to be modular, loosely coupled, and ready for integration with the full My Sweet Home system.
 
 ---
 
-## 📌 3. Low-Level Requirements (LLRs) and Implementation
+## 2. Design Pattern Used
+### Observer Pattern
+- `Detector` acts as the **Subject**
+- `Alarm`, `Light`, `Logger`, and `FireStation` act as **Observers**
+- Observers are notified automatically when a detection event occurs
 
-### ✅ **LLR-DS1 — Continuous monitoring**
-The detector monitors smoke/gas and triggers the danger state when abnormal levels occur.
-
-**Implemented as:**  
-```cpp
-detector.setDanger(true);
-```
+This design allows multiple components to react to the same event without tight coupling.
 
 ---
 
-### ✅ **LLR-DS2 — User acknowledgement**
-If danger is detected, system waits for user interaction (simulated in this version).
+## 3. System Behavior
+When smoke or gas exceeds the sensitivity threshold:
+1. The detector identifies a danger event
+2. Observers are notified
+3. Reactions are executed sequentially:
+   - Alarm is triggered
+   - Light is activated
+   - FireStation is notified (simulation)
 
 ---
 
-### ✅ **LLR-DS3 — Lights should blink if user does NOT acknowledge**
-Simulated through:
-```
-[LIGHT] Blinking all lights... (simulation)
-[LIGHT] Blinking interval = 1 second (simulation)
-```
+## 4. UML & Implementation Consistency
+- The implementation directly matches the UML design
+- The Observer Pattern is explicitly modeled using `Subject` and `Observer` interfaces
+- No changes were made to other subsystems
 
 ---
 
-### ✅ **LLR-DS4 — Notify fire station if blinking is ignored**
-Simulated through:
-```
-[System] Calling Fire Station... (simulation)
-```
+## 5. How to Run
+This module can be compiled and executed independently.
 
----
-
-### ✅ **LLR-DS5 — Every step must be logged**
-Logger records:
-```
-[LOGGER] Log entry: Danger!
-```
-
----
-
-## 📌 4. Class Responsibilities
-
-### **Detector**
-- Stores observer list  
-- Detects danger  
-- Broadcasts messages to attached observers  
-- Simulates extended detection sequence (DS3, DS4)
-
-### **AlarmObserver**
-- Prints alarm activation message
-
-### **LightObserver**
-- Prints blinking behavior  
-- Used for DS3 simulation
-
-### **LogObserver**
-- Logs every detection event
-
----
-
-## 📌 5. How to Run This Subsystem
-No external libraries required.
-
-Compile with:
-```sh
-g++ main.cpp Alarm.h Light.h LogObserver.h Detector.h Observer.h -o DetectionSystem
-```
-
-Run:
-```sh
+```bash
+g++ *.cpp -o DetectionSystem
 ./DetectionSystem
-```
-
----
-
-## 📌 6. Sample Output (Screenshots)
-![System Output](images/output.png)
-### 🔹 Danger Detected
-```
-[System] Danger signal received...
-[ALARM] Danger detected! Alarm is ON!
-[LIGHT] Blinking... Danger detected!
-[LOGGER] Log entry: Danger!
-```
-
-### 🔹 Extended Detection Sequence
-```
---- Detection Sequence Simulation ---
-[System] No user acknowledgement detected.
-[LIGHT] Blinking all lights... (simulation)
-[LIGHT] Blinking interval = 1 second (simulation)
-[System] Still no acknowledgement received.
-[System] Calling Fire Station... (simulation)
-```
-
----
-
-## 📌 7. Integration Readiness
-This subsystem follows the Observer Pattern exactly as defined in the Phase 2 design report.
-
-✔ **Observers are modular**  
-✔ **Danger event broadcasting is working**  
-✔ **Extended behaviors (DS3, DS4) included as simulation**  
-✔ **Team integrator can attach additional observers without modifying the detector**
-
-Your subsystem is fully ready for integration with:
-- Logging System  
-- Menu System  
-- Mode System  
-- State System  
-- Security System (Camera)  
-
